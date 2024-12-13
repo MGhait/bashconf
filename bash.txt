@@ -1,0 +1,36 @@
+
+##########################################################################################
+### FOR GIT 
+##########################################################################################
+#this aliases need to be run before every git command to affect
+alias git-Uni='GIT_AUTHOR_NAME="Mohamed Ghait" GIT_AUTHOR_EMAIL="mghait@std.mans.edu.eg" GIT_COMMITTER_NAME="M7mdGhait-U24" GIT_COMMITTER_EMAIL="mghait@std.mans.edu.eg" git'
+alias git-personal='GIT_AUTHOR_NAME="Mohamed Saad" GIT_AUTHOR_EMAIL="mosaad05019@gmail.com" GIT_COMMITTER_NAME="Mohamed Ghait -U24" GIT_COMMITTER_EMAIL="mosaad05019@gmail.com" git'
+
+#this need to be run once in the session and every git command after it will be affected
+git-personal-mode() {
+    export GIT_AUTHOR_NAME="Mohamed Saad"
+    export GIT_AUTHOR_EMAIL="mosaad05019@gmail.com"
+    export GIT_COMMITTER_NAME="Mohamed Ghait -U24"
+    export GIT_COMMITTER_EMAIL="mosaad05019@gmail.com"
+    echo "Git personal mode activated for this session."
+    echo "Author: $GIT_AUTHOR_NAME <$GIT_AUTHOR_EMAIL>"
+    echo "Committer: $GIT_COMMITTER_NAME <$GIT_COMMITTER_EMAIL>"
+}
+
+git-default-mode() {
+    unset GIT_AUTHOR_NAME
+    unset GIT_AUTHOR_EMAIL
+    unset GIT_COMMITTER_NAME
+    unset GIT_COMMITTER_EMAIL
+    echo "Git personal mode deactivated. Using default Git configuration."
+}
+git-uni-mode() {
+    export GIT_AUTHOR_NAME="Mohamed Ghait"
+    export GIT_AUTHOR_EMAIL="mghait@std.mans.edu.eg"
+    export GIT_COMMITTER_NAME="M7mdGhait-U24"
+    export GIT_COMMITTER_EMAIL="mghait@std.mans.edu.eg"
+    echo "Git University mode activated for this session."
+    echo "Author: $GIT_AUTHOR_NAME <$GIT_AUTHOR_EMAIL>"
+    echo "Committer: $GIT_COMMITTER_NAME <$GIT_COMMITTER_EMAIL>"
+}
+##########################################################################################
