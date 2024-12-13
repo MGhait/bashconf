@@ -1,0 +1,17 @@
+add this .htaccess to the root dir 
+
+=========================================================
+<IfModule mod_rewrite.c>
+Options +FollowSymLinks
+RewriteEngine On
+
+RewirteCond %{REQUEST_URI} !^/public/
+
+RewirteCond %{REQUEST_FILENAME} !-d
+RewirteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.*) /public/$1
+#RewriteRule ^ index.php [L]
+RewriteRule ^(/)?$ public/index.php [L]
+</IfModule>
+=========================================================

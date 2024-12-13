@@ -1,0 +1,8 @@
+1. add this .htaccess to the root directory without changing anything
+
+=========================================================
+<IfMOdule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+=========================================================

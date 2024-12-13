@@ -1,0 +1,111 @@
+========================================================================================
+To Make Shortcut in Linux
+========================================================================================
+1.Method one #Create Alias
+----------------------------------------------------------------------------------------
+
+-> nano ~/.bashrc
+add the folloing line at the end of file
+-> alias name='command_name'
+save and exit (CTRL + X -> Y -> ENTER)
+in the terminal type next command 
+-> source ~/.bashrc
+----------------------------------------------------------------------------------------
+example-one
+-> alias mountwin='sudo mount -t ntfs-3g -o rw,uid=1000,gid=1000 /dev/sda2 /mnt/windows'
+----------------------------------------------------------------------------------------
+
+
+========================================================================================
+2.Method two #Create a shell script (I like it)
+----------------------------------------------------------------------------------------
+-> nano ~/scriptFileName.sh can use vi or gedit
+add your script after the folloing line
+-> #!/bin/bash
+-> scriptHere
+save and exit make exeutable:
+-> chmod +x ~/scriptFileName.sh
+to run it every were you can add the folloing command in terminal
+sudo mv ~/scriptFileName.sh /usr/local/bin/(you can create dir here or just leave it )
+----------------------------------------------------------------------------------------
+example-two
+-> vi ~/mountwin.sh
+#!/bin/bash
+sudo mount -t ntfs-3g -o rw,uid=1000,gid=1000 /dev/sda2 /mnt/windows
+#save and exit 
+chmod +x ~/mountwin.sh
+sudo mv ~/mountwin.sh /usr/local/bin/mountwin
+----------------------------------------------------------------------------------------
+
+
+========================================================================================
+3.Mehtod three #Create desktop shortcut
+----------------------------------------------------------------------------------------
+gedit ~/Desktop/MountWindos.desktop
+
+[Desktop Entry]
+Type=Application
+Name=Mount Windows
+Exec=sh -c "sudo mount -t ntfs-3g -o rw,uid=1000,gid=1000 /dev/sda2 /mnt/windows"
+Terminal=true
+
+save and exit
+chmod +x ~/Destop/MountWindos.desktop
+=========================================================================================
+
+
+=========================================================================================
+=========================================================================================
+
+
+=========================================================================================
+How to open website form phone or any device in same network
+=========================================================================================
+1. Getting the ip address of my ubuntu
+ip addr show it #looks like 192.168.1.3 or 10.x.x.x
+or use hostname -I it'll do the same thing
+
+2. configure laravel to listen on all interfaces 
+go to .env file
+set appurl to ubuntu ip address
+APP_URL=http://192.168.1.3
+
+3. start laravel server to listen on all interfaces
+php artisan serve --host 0.0.0.0 --port 8000
+
+4. configure firewall 
+sudo ufw allow 8000
+
+howla use your phone or any devise in network to open the website
+http://address:8000
+http://192.168.1.3:8000
+=========================================================================================
+
+
+=========================================================================================
+=========================================================================================
+
+
+=========================================================================================
+download using yt-dlp
+=========================================================================================
+
+yt-dlp -o "%(playlist_index)s-%(title)s.%(ext)s"  --playlist-start 1 --playlist-end 5 https://www.youtube.com/playlist?list=PLm8sgxwSZofdIdWQxDhg3HUplNJIZRjqb
+=========================================================================================
+=========================================================================================
+BLUETOOTH
+=========================================================================================
+To connect to bluetooth from termial
+====================================
+bluetoothctl 
+devises
+
+- scan on 
+- devices
+- trust
+- pair
+- connect
+
+for mine
+connect 6C:CE:44:C5:DF:C4
+
